@@ -15,7 +15,7 @@ def test_guest_can_go_to_login_page(browser):
     page.open()  # открываем страницу
     page.go_to_login_page()
 
-def test_guest_check_login_page(browser):
+def test_guest_can_go_to_login_page(browser):
     link = "http://selenium1py.pythonanywhere.com/"
     main_page = MainPage(browser, link)
     main_page.open()
