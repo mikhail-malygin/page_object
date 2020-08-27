@@ -34,16 +34,16 @@ class BasePage(ProductPageLocators):
             return False
         return True
 
-    def is_product_page_title_present(self, how, what):
+    def is_product_page_title_present(self, how, what, counter):
         title = self.browser.find_element(how, what).text
-        if title == ProductPageLocators.PRODUCT_NAME:
+        if title == ProductPageLocators.PRODUCT_NAME[counter]:
             return True
         else:
             return False
 
-    def is_product_page_price_present(self, how, what):
+    def is_product_page_price_present(self, how, what, counter):
         price = self.browser.find_element(how, what).text
-        if price == ProductPageLocators.PRODUCT_PRICE:
+        if price == ProductPageLocators.PRODUCT_PRICE[counter]:
             return True
         else:
             return False
