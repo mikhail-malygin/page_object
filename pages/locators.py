@@ -17,4 +17,4 @@ class ProductPageLocators:
     TITLE_FORM = (By.CSS_SELECTOR, "div.col-sm-6.product_main h1")
     PRODUCT_PRICE = "£9.99"
     PRICE_FORM = (By.CSS_SELECTOR, "p.price_color:nth-child(2)")
-    BUSKET_FORM = (By.CSS_SELECTOR, "#add_to_basket_form button1")
+    BASKET_FORM = (By.CSS_SELECTOR, "#add_to_basket_form button")
