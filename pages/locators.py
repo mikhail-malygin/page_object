@@ -26,8 +26,6 @@ class ProductPageLocators:
     NAME_FORM = (By.CSS_SELECTOR, "div.col-sm-6.product_main h1")
     PRICE_FORM = (By.CSS_SELECTOR, "div.col-sm-6.product_main > p.price_color")
     BASKET_FORM = (By.CSS_SELECTOR, "#add_to_basket_form button")
-    BASKET_PRICE = (By.CSS_SELECTOR, "#basket_formset > div > div > div.col-sm-1 > p")
-    BOOK_PRICE = (By.CSS_SELECTOR, "div.col - sm - 6.product_main > p.price_color")
 
 
 class ProductPagePromo:
@@ -35,7 +33,12 @@ class ProductPagePromo:
 
 
 class BasketPageLocators:
+    # Selectors of the basket page and message about adding the product in the basket
     IN_MESSAGE_ADD_TO_BASKET_FORM_PRODUCT_NAME = (By.CSS_SELECTOR, "#messages > div:nth-child(1) > div > strong")
     IN_MESSAGE_ADD_TO_BASKET_FORM_PRODUCT_PRICE = (
         By.CSS_SELECTOR,
         "#messages > div.alert.alert-safe.alert-noicon.alert-info.fade.in > div > p:nth-child(1) > strong")
+    VIEW_BASKET_BUTTON_FORM = (By.CSS_SELECTOR, "#messages > div.alert.alert-safe.alert-noicon.alert-info.fade.in > "
+                                                "div > p:nth-child(2) > a:nth-child(1)")
+    BASKET_NAME_FORM = (By.CSS_SELECTOR, "div .col-sm-4 [href='/en-gb/catalogue/coders-at-work_207/']")
+    BASKET_PRICE_FORM = (By.CSS_SELECTOR, "#basket_formset > div > div > div.col-sm-1 > p")

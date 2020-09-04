@@ -16,7 +16,6 @@ class ProductPage(BasePage, ProductPageLocators):
     def should_be_product_page_url(self, valid_substring_product_page_url):
         assert self.is_product_page_url_present(valid_substring_product_page_url), "The wrong url product page"
 
-
     def should_be_product_name(self, valid_product_name):
         assert self.is_product_page_name_present(*ProductPageLocators.NAME_FORM, valid_product_name), \
             "The wrong product title"
@@ -45,3 +44,21 @@ class ProductPage(BasePage, ProductPageLocators):
         assert self.is_product_prices_in_basket_and_in_product_page_the_same \
             (*BasketPageLocators.IN_MESSAGE_ADD_TO_BASKET_FORM_PRODUCT_PRICE, valid_product_price), \
             "The product prices in the product page and in the basket page are different"
+
+    def should_be_button_view_basket(self):
+        assert self.is_element_present(
+            *BasketPageLocators.VIEW_BASKET_BUTTON_FORM), "The button 'View basket' isn't available"
+
+    def view_basket(self):
+        view_basket_button = self.browser.find_element(*BasketPageLocators.VIEW_BASKET_BUTTON_FORM)
+        view_basket_button.click()
+
+    def check_the_product_name_and_in_the_basket(self, valid_product_name):
+        assert self.is_product_names_in_basket_and_in_product_page_the_same \
+            (*BasketPageLocators.BASKET_NAME_FORM, valid_product_name), \
+            "The product names in the product page and in the basket page are different"
+
+    def check_the_product_price_and_in_the_basket(self, valid_product_price):
+        assert self.is_product_prices_in_basket_and_in_product_page_the_same \
+            (*BasketPageLocators.BASKET_PRICE_FORM, valid_product_price), \
+            "The product names in the product page and in the basket page are different"

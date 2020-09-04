@@ -65,13 +65,6 @@ class BasePage(ProductPageLocators):
         else:
             return False
 
-    def is_element_present(self, how, what):
-        try:
-            self.browser.find_element(how, what)
-        except NoSuchElementException:
-            return False
-        return True
-
     def solve_quiz_and_get_code(self):
         alert = self.browser.switch_to.alert
         x = alert.text.split(" ")[2]
@@ -91,15 +84,15 @@ class BasePage(ProductPageLocators):
                 - "is_product_prices_in_basket_and_in_product_page_the_same"           
     '''
     def is_product_names_in_basket_and_in_product_page_the_same(self, how, what, valid_product_name):
-        product_name_in_message = self.browser.find_element(how, what).text
-        if product_name_in_message == valid_product_name:
+        product_name = self.browser.find_element(how, what).text
+        if product_name == valid_product_name:
             return True
         else:
             return False
 
     def is_product_prices_in_basket_and_in_product_page_the_same(self, how, what, valid_product_price):
-        product_price_in_message = self.browser.find_element(how, what).text
-        if product_price_in_message == valid_product_price:
+        product_price = self.browser.find_element(how, what).text
+        if product_price == valid_product_price:
             return True
         else:
             return False

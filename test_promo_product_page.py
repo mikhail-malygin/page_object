@@ -29,3 +29,7 @@ def test_guest_can_add_product_to_basket(browser, promo_code):
     valid_product_price = ProductPageLocators.PRODUCT_CODERS_AT_WORK[3]
     product_page.check_the_product_name_in_message(valid_product_name)
     product_page.check_the_product_price_in_message(valid_product_price)
+    product_page.should_be_button_view_basket()
+    product_page.view_basket()
+    product_page.check_the_product_name_and_in_the_basket(valid_product_name)
+    product_page.check_the_product_price_and_in_the_basket(valid_product_price)
