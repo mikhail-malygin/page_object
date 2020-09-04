@@ -26,6 +26,7 @@ class ProductPageLocators:
     NAME_FORM = (By.CSS_SELECTOR, "div.col-sm-6.product_main h1")
     PRICE_FORM = (By.CSS_SELECTOR, "div.col-sm-6.product_main > p.price_color")
     BASKET_FORM = (By.CSS_SELECTOR, "#add_to_basket_form button")
+    SUCCESS_MESSAGE = (By.CSS_SELECTOR, "#messages > div:nth-child(1)")
 
 
 class ProductPagePromo:

@@ -1,6 +1,8 @@
-from selenium.common.exceptions import NoSuchElementException, NoAlertPresentException
+from selenium.common.exceptions import NoSuchElementException, NoAlertPresentException, TimeoutException
 from .locators import ProductPageLocators
 import math
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 
 
 class BasePage(ProductPageLocators):
@@ -19,10 +21,26 @@ class BasePage(ProductPageLocators):
             return False
         return True
 
+    def is_not_element_present(self, how, what, timeout=4):
+        try:
+            WebDriverWait(self.browser, timeout, 1, TimeoutException).until(EC.presence_of_element_located((how, what)))
+        except TimeoutException:
+            return True
+
+        return False
+
+    def element_is_disapperead(self, how, what, timeout=4):
+        try:
+            WebDriverWait(self.browser, timeout, 1, TimeoutException).until(EC.presence_of_element_located((how, what)))
+        except TimeoutException:
+            return True
+        return False
+
     ''' Check login link: 
         - "is_login_page_login_form_present"
         - "is_login_page_register_form_present" 
     '''
+
     def is_login_page_login_form_present(self, how, what):
         try:
             self.browser.find_element(how, what)
@@ -45,7 +63,8 @@ class BasePage(ProductPageLocators):
     '''
     def is_product_page_url_present(self, valid_substring_product_page_url):
         product_page_url = self.browser.current_url
-        substring_product_page_url = product_page_url[product_page_url.index(ProductPageLocators.FIRST_ATTRIBUTE_OF_URL_PRODUCT_PAGE): len(product_page_url)]
+        substring_product_page_url = product_page_url[product_page_url.index(
+            ProductPageLocators.FIRST_ATTRIBUTE_OF_URL_PRODUCT_PAGE): len(product_page_url)]
         if substring_product_page_url == valid_substring_product_page_url:
             return True
         else:

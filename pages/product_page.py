@@ -62,3 +62,13 @@ class ProductPage(BasePage, ProductPageLocators):
         assert self.is_product_prices_in_basket_and_in_product_page_the_same \
             (*BasketPageLocators.BASKET_PRICE_FORM, valid_product_price), \
             "The product names in the product page and in the basket page are different"
+
+    def should_not_be_success_message(self):
+        assert not self.is_element_present(*ProductPageLocators.SUCCESS_MESSAGE), \
+            "Success message is presented, but should not be"
+
+    def there_is_no_success_message(self):
+        assert self.is_not_element_present(*ProductPageLocators.SUCCESS_MESSAGE), "There is a success message"
+
+    def message_should_be_disapperead(self):
+        assert self.element_is_disapperead(*ProductPageLocators.SUCCESS_MESSAGE), "Success message isn't disappeared"
