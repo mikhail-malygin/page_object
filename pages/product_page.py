@@ -1,5 +1,5 @@
 from .base_page import BasePage
-from .locators import ProductPageLocators, MainPageLocators, BasketPageLocators
+from .locators import ProductPageLocators, BasketPageLocators, BasePageLocators
 
 
 class ProductPage(BasePage, ProductPageLocators):
@@ -32,7 +32,7 @@ class ProductPage(BasePage, ProductPageLocators):
         basket_link.click()
 
     def open_busket(self):
-        basket_link = self.browser.find_element(*MainPageLocators.BASKET_LINK)
+        basket_link = self.browser.find_element(*BasePageLocators.BASKET_LINK)
         basket_link.click()
 
     def check_the_product_name_in_message(self, valid_product_name):

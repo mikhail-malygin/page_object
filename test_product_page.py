@@ -43,10 +43,25 @@ def test_guest_cant_see_success_message(browser, link):
     product_page.there_is_no_success_message()
 
 
-@pytest.mark.parametrize("link", [ProductPageLocators.PRODUCT_THE_SHELLCODERS_HANDBOOK[0]])
+@pytest.mark.parametrize("link", [pytest.param(ProductPageLocators.PRODUCT_THE_SHELLCODERS_HANDBOOK[0],
+                                               marks=pytest.mark.xfail)])
 def test_message_disappeared_after_adding_product_to_basket(browser, link):
     product_page = ProductPage(browser, link)
     product_page.open()
     product_page.add_product_to_basket()
     product_page.solve_quiz_and_get_code()
     product_page.message_should_be_disapperead()
+
+
+def test_guest_should_see_login_link_on_product_page(browser):
+    link = ProductPageLocators.PRODUCT_THE_CITY_AND_THE_STARS[0]
+    page = ProductPage(browser, link)
+    page.open()
+    page.should_be_login_link()
+
+
+def test_guest_can_go_to_login_page_from_product_page(browser):
+    link = ProductPageLocators.PRODUCT_THE_CITY_AND_THE_STARS[0]
+    page = ProductPage(browser, link)
+    page.open()
+    page.go_to_login_page()

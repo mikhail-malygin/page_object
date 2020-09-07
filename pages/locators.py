@@ -1,10 +1,12 @@
 from selenium.webdriver.common.by import By
 
+class BasePageLocators:
+    LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
+    BASKET_LINK = (By.CSS_SELECTOR, ".btn-group > a.btn.btn-default")
+
 
 class MainPageLocators:
     MAIN_PAGE_URL = "http://selenium1py.pythonanywhere.com/"
-    LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
-    BASKET_LINK = (By.CSS_SELECTOR, ".btn-group > a.btn.btn-default")
 
 
 class LoginPageLocators:
@@ -21,6 +23,8 @@ class ProductPageLocators:
                                         "The shellcoder's handbook", "£9.99")
     PRODUCT_CODERS_AT_WORK = ("http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=newYear2019",
                               "catalogue/coders-at-work_207/?promo=newYear2019", "Coders at Work", "£19.99")
+    PRODUCT_THE_CITY_AND_THE_STARS = ("http://selenium1py.pythonanywhere.com/en-gb/catalogue/the-city-and-the-stars_95",
+                                      "catalogue/the-city-and-the-stars_95", "the-city-and-the-stars_95", "£16.99")
     FIRST_ATTRIBUTE_OF_URL_PRODUCT_PAGE = "catalogue"
     # Selectors of the product page
     NAME_FORM = (By.CSS_SELECTOR, "div.col-sm-6.product_main h1")
