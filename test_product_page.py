@@ -1,6 +1,7 @@
 import pytest
 from .pages.product_page import ProductPage
-from .pages.locators import ProductPageLocators
+from .pages.locators import ProductPageLocators, BasePageLocators
+from .pages.basket_page import BasketPage
 
 
 @pytest.mark.parametrize("link, valid_substring_product_page_url, product_name, product_price",
@@ -65,3 +66,14 @@ def test_guest_can_go_to_login_page_from_product_page(browser):
     page = ProductPage(browser, link)
     page.open()
     page.go_to_login_page()
+
+
+def test_guest_cant_see_product_in_basket_opened_from_product_page(browser):
+    # Check necessary attributes of the empty basket
+    link = ProductPageLocators.PRODUCT_THE_CITY_AND_THE_STARS[0]
+    page = ProductPage(browser, link)
+    page.open()
+    page.open_basket()
+    basket_link = BasePageLocators.BASKET_LINK
+    basket_page = BasketPage(browser, basket_link)
+    basket_page.basket_is_empty()

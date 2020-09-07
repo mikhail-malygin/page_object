@@ -1,5 +1,6 @@
 from selenium.webdriver.common.by import By
 
+
 class BasePageLocators:
     LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
     BASKET_LINK = (By.CSS_SELECTOR, ".btn-group > a.btn.btn-default")
@@ -38,6 +39,7 @@ class ProductPagePromo:
 
 
 class BasketPageLocators:
+    BASKET_LINK = "http://selenium1py.pythonanywhere.com/en-gb/basket/"
     # Selectors of the basket page and message about adding the product in the basket
     IN_MESSAGE_ADD_TO_BASKET_FORM_PRODUCT_NAME = (By.CSS_SELECTOR, "#messages > div:nth-child(1) > div > strong")
     IN_MESSAGE_ADD_TO_BASKET_FORM_PRODUCT_PRICE = (
@@ -47,3 +49,5 @@ class BasketPageLocators:
                                                 "div > p:nth-child(2) > a:nth-child(1)")
     BASKET_NAME_FORM = (By.CSS_SELECTOR, "div .col-sm-4 [href='/en-gb/catalogue/coders-at-work_207/']")
     BASKET_PRICE_FORM = (By.CSS_SELECTOR, "#basket_formset > div > div > div.col-sm-1 > p")
+    BASKET_IS_EMPTY_FORM = (By.CSS_SELECTOR, "#content_inner > div.basket-title.hidden-xs > div > h2")
+    BASKET_IS_EMPTY_MESSAGE_FORM = (By.CSS_SELECTOR, "#content_inner > p")

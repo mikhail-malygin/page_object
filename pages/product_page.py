@@ -2,7 +2,7 @@ from .base_page import BasePage
 from .locators import ProductPageLocators, BasketPageLocators, BasePageLocators
 
 
-class ProductPage(BasePage, ProductPageLocators):
+class ProductPage(BasePage, ProductPageLocators, BasePageLocators):
     def __init__(self, browser, link, timeout=10):
         super().__init__(browser, link, timeout)
         self.basket_price = None
@@ -29,10 +29,6 @@ class ProductPage(BasePage, ProductPageLocators):
 
     def add_product_to_basket(self):
         basket_link = self.browser.find_element(*ProductPageLocators.BASKET_FORM)
-        basket_link.click()
-
-    def open_busket(self):
-        basket_link = self.browser.find_element(*BasePageLocators.BASKET_LINK)
         basket_link.click()
 
     def check_the_product_name_in_message(self, valid_product_name):
