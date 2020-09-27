@@ -12,14 +12,14 @@ class MainPageLocators:
 
 
 class LoginPageLocators:
+    LOGIN_URL = "http://selenium1py.pythonanywhere.com/en-gb/accounts/login/"
     SUBSTRING_LOGIN_URL = "login"
     LOGIN_FORM = (By.CSS_SELECTOR, "#login_form")
     REGISTER_FORM = (By.CSS_SELECTOR, "#register_form")
     INPUT_EMAIL_ADDRESS_REGISTER_FORM = (By.CSS_SELECTOR, "#id_registration-email")
     INPUT_PASSWORD_REGISTER_FORM = (By.CSS_SELECTOR, "div #id_registration-password1")
     INPUT_CONFIRM_PASSWORD_REGISTER_FORM = (By.CSS_SELECTOR, "div #id_registration-password2")
-    TEST_EMAIL = "test_malygin@gmail.com"
-    TEST_PASSWORD = "qwerty123"
+    BUTTON_REGISTER_FORM = (By.CSS_SELECTOR,"#register_form > button")
 
 
 class ProductPageLocators:
