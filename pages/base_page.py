@@ -41,7 +41,9 @@ class BasePage(ProductPageLocators):
 
     def should_be_authorized_user(self):
         assert self.is_element_present(*BasePageLocators.USER_ICON), "User icon is not presented," \
-                                                                         "probably unauthorised user"
+                                                                     "probably unauthorised user"
+
+
     def element_is_disappeared(self, how, what, timeout=4):
         try:
             WebDriverWait(self.browser, timeout, 1, TimeoutException).until(EC.presence_of_element_located((how, what)))
@@ -74,6 +76,7 @@ class BasePage(ProductPageLocators):
         -" is_product_page_price_present"
         - "is_element_present" 
     '''
+
     def is_product_page_url_present(self, valid_substring_product_page_url):
         product_page_url = self.browser.current_url
         substring_product_page_url = product_page_url[product_page_url.index(
@@ -115,6 +118,7 @@ class BasePage(ProductPageLocators):
                 - "is_product_names_in_basket_and_in_product_page_the_same"
                 - "is_product_prices_in_basket_and_in_product_page_the_same"           
     '''
+
     def is_product_names_in_basket_and_in_product_page_the_same(self, how, what, valid_product_name):
         product_name = self.browser.find_element(how, what).text
         if product_name == valid_product_name:
@@ -128,4 +132,3 @@ class BasePage(ProductPageLocators):
             return True
         else:
             return False
-
