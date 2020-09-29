@@ -1,5 +1,5 @@
 from selenium.common.exceptions import NoSuchElementException, NoAlertPresentException, TimeoutException
-from .locators import ProductPageLocators, BasePageLocators
+from .locators import ProductPageLocators, BasePageLocators, MainPageLocators
 import math
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -14,6 +14,9 @@ class BasePage(ProductPageLocators):
     def open(self):
         self.browser.get(self.link)
 
+    def should_be_main_page(self):
+        assert self.is_element_present(*MainPageLocators.MAIN_PAGE_FORM), "The main page isn't found or invalid"
+
     def should_be_login_link(self):
         assert self.is_element_present(*BasePageLocators.LOGIN_LINK), "login link is not presented"
 
@@ -22,7 +25,7 @@ class BasePage(ProductPageLocators):
         login_link.click()
 
     def open_basket(self):
-        basket_link = self.browser.find_element(*BasePageLocators.BASKET_LINK)
+        basket_link = self.browser.find_element(*BasePageLocators.BASKET_FORM)
         basket_link.click()
 
     def is_element_present(self, how, what):
@@ -42,7 +45,6 @@ class BasePage(ProductPageLocators):
     def should_be_authorized_user(self):
         assert self.is_element_present(*BasePageLocators.USER_ICON), "User icon is not presented," \
                                                                      "probably unauthorised user"
-
 
     def element_is_disappeared(self, how, what, timeout=4):
         try:

@@ -2,7 +2,6 @@ from .base_page import BasePage
 from .locators import LoginPageLocators
 
 
-
 class LoginPage(BasePage, LoginPageLocators):
     def __init__(self, browser, link, timeout=10):
         super().__init__(browser, link, timeout)

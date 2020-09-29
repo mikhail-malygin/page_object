@@ -3,12 +3,13 @@ from selenium.webdriver.common.by import By
 
 class BasePageLocators:
     LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
-    BASKET_LINK = (By.CSS_SELECTOR, ".btn-group > a.btn.btn-default")
+    BASKET_FORM = (By.CSS_SELECTOR, ".btn-group > a.btn.btn-default")
     USER_ICON = (By.CSS_SELECTOR, ".icon-user")
 
 
 class MainPageLocators:
     MAIN_PAGE_URL = "http://selenium1py.pythonanywhere.com/"
+    MAIN_PAGE_FORM = (By.CSS_SELECTOR, "#default > header > div.page_inner")
 
 
 class LoginPageLocators:
@@ -19,7 +20,7 @@ class LoginPageLocators:
     INPUT_EMAIL_ADDRESS_REGISTER_FORM = (By.CSS_SELECTOR, "#id_registration-email")
     INPUT_PASSWORD_REGISTER_FORM = (By.CSS_SELECTOR, "div #id_registration-password1")
     INPUT_CONFIRM_PASSWORD_REGISTER_FORM = (By.CSS_SELECTOR, "div #id_registration-password2")
-    BUTTON_REGISTER_FORM = (By.CSS_SELECTOR,"#register_form > button")
+    BUTTON_REGISTER_FORM = (By.CSS_SELECTOR, "#register_form > button")
 
 
 class ProductPageLocators:

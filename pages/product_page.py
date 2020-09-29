@@ -66,5 +66,5 @@ class ProductPage(BasePage, ProductPageLocators, BasePageLocators):
     def there_is_no_success_message(self):
         assert self.is_not_element_present(*ProductPageLocators.SUCCESS_MESSAGE), "There is a success message"
 
-    def message_should_be_disappeared(self):
+    def message_should_be_disapperead(self):
         assert self.element_is_disappeared(*ProductPageLocators.SUCCESS_MESSAGE), "Success message isn't disappeared"

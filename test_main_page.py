@@ -5,6 +5,14 @@ from .pages.locators import MainPageLocators, BasketPageLocators
 from .pages.basket_page import BasketPage
 
 
+def test_guest_should_see_main_page(browser):
+    # Check the validity of main page
+    link = MainPageLocators.MAIN_PAGE_URL
+    main_page = MainPage(browser, link)
+    main_page.open()
+    main_page.should_be_main_page()
+
+
 @pytest.mark.login_guest
 class TestLoginFromMainPage:
     def test_guest_should_see_login_link(self, browser):
